@@ -1,22 +1,27 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Albums, Button } from '../components'
 import { getUsers } from '../store/actions/users'
 import { getAlbums } from '../store/actions/albums'
 import PickerModal from 'react-native-picker-modal-view'
 import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native'
 
-const Home = ({ fetchAlbums, fetchUsers, albums, users, isFetching, navigation }) => {
+const Home = ({ navigation }) => {
+  const dispatch = useDispatch()
+  const reduxUsers = useSelector(({ users }) => users)
+  const reduxAlbums = useSelector(({ albums }) => albums)
+  const { data: users } = reduxUsers
+  const { data: albums, isFetching, fetchError } = reduxAlbums
+
   const [filter, setFilter] = React.useState(null)
   const [firstLoad, setFirstLoad] = React.useState(true)
 
   React.useEffect(() => {
     ;(async () => {
-      await fetchAlbums()
+      dispatch(getAlbums())
 
       if (!users && users.length < 1) {
-        await fetchUsers()
+        dispatch(getUsers())
       }
 
       setFirstLoad(false)
@@ -26,8 +31,8 @@ const Home = ({ fetchAlbums, fetchUsers, albums, users, isFetching, navigation }
   React.useEffect(() => {
     ;(async () => {
       if (!firstLoad) {
-        if (filter) await fetchAlbums({ userId: filter })
-        else await fetchAlbums()
+        if (filter) dispatch(getAlbums({ userId: filter }))
+        else dispatch(getAlbums())
       }
     })()
   }, [filter])
@@ -103,20 +108,4 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = ({ albums, users }) => ({
-  isFetching: albums.isFetching,
-  fetchError: albums.fetchError,
-  albums: albums.data,
-  users: users.data,
-})
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      fetchAlbums: getAlbums,
-      fetchUsers: getUsers,
-    },
-    dispatch,
-  )
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home
