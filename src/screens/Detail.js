@@ -85,7 +85,6 @@ const Detail = ({ route, photos, isFetching, fetchPhotos }) => {
             activeOpacity={0.4}
             onPress={() => setPhotoActive({ data: photo, index })}
             style={[
-              {paddingBottom: 30},
               styles.galleryItem,
               {
                 width: measureThumb,
