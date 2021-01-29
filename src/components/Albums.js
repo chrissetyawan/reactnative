@@ -22,7 +22,7 @@ export const AlbumItem = ({ data, onViewPress, ...restProps }) => {
               <Text style={styles.item.descriptionText}>Website: {data.user.website}</Text>
             </View>
           )}
-          <Button text="View Album" onPress={event => onViewPress(data, event)} />
+          <Button text="View Album" style={styles.item.button} onPress={event => onViewPress(data, event)} />
         </View>
       </View>
     </View>
@@ -54,9 +54,8 @@ const styles = {
   }),
   item: StyleSheet.create({
     container: {
-      marginTop: 6,
-      marginBottom: 12,
-      paddingBottom: 14,
+      marginBottom: 20,
+      paddingBottom: 20,
       flexDirection: 'row',
       alignItems: 'flex-start',
       borderBottomColor: '#CCC',
@@ -70,16 +69,16 @@ const styles = {
     },
     content: {
       flex: 1,
-      paddingLeft: 10,
+      paddingLeft: 16,
       justifyContent: 'space-between',
       alignItems: 'flex-start',
-      paddingVertical: 8,
+      paddingVertical: 5,
     },
     title: {
       fontSize: 18,
       fontWeight: '600',
       textTransform: 'capitalize',
-      marginBottom: 4,
+      paddingBottom: 20,
     },
     description: {
       flex: 1,
@@ -88,6 +87,9 @@ const styles = {
     descriptionText: {
       marginBottom: 4,
     },
+    button: {
+      width: '90%'
+    }
   }),
 }
 
