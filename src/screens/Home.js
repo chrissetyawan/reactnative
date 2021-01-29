@@ -17,24 +17,19 @@ const Home = ({ navigation }) => {
   const [firstLoad, setFirstLoad] = React.useState(true)
 
   React.useEffect(() => {
-    ;(async () => {
-      dispatch(getAlbums())
+    dispatch(getAlbums())
+    if (!users && users.length < 1) {
+      dispatch(getUsers())
+    }
 
-      if (!users && users.length < 1) {
-        dispatch(getUsers())
-      }
-
-      setFirstLoad(false)
-    })()
+    setFirstLoad(false)
   }, [])
 
   React.useEffect(() => {
-    ;(async () => {
-      if (!firstLoad) {
-        if (filter) dispatch(getAlbums({ userId: filter }))
-        else dispatch(getAlbums())
-      }
-    })()
+    if (!firstLoad) {
+      if (filter) dispatch(getAlbums({ userId: filter }))
+      else dispatch(getAlbums())
+    }
   }, [filter])
 
   return (
