@@ -79,16 +79,22 @@ const styles = {
       fontWeight: '600',
       textTransform: 'capitalize',
       paddingBottom: 20,
+      color: '#525252'
     },
     description: {
       flex: 1,
       justifyContent: 'flex-start',
     },
     descriptionText: {
+      fontSize: 15,
       marginBottom: 4,
+      color: '#676767'
     },
     button: {
-      width: '90%'
+      width: '100%',
+      paddingVertical: 10,
+      color: '#fff',
+      backgroundColor: '#158A24'
     }
   }),
 }
