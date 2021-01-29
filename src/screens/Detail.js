@@ -92,7 +92,7 @@ const Detail = ({ route, photos, isFetching, fetchPhotos }) => {
                 margin: marginThumb,
               },
               photoActive.data.id === photo.id && {
-                borderWidth: 2,
+                borderWidth: 4,
                 borderStyle: 'solid',
                 borderColor: theme.colors.primary,
               },
