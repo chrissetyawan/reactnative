@@ -141,9 +141,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#CCC',
   },
   photoTitle: {
-    paddingVertical: 8,
-    paddingHorizontal: 36,
-    marginBottom: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+    minHeight: 80,
     zIndex: 2,
   },
   photoTitleText: {
@@ -151,6 +151,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
     textTransform: 'capitalize',
+    borderWidth: 1,
+    borderColor: '#2200',
   },
   galleryBox: {
     flexWrap: 'wrap',
