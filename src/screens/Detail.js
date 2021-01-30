@@ -112,7 +112,6 @@ const Detail = ({ route, photos, isFetching, fetchPhotos }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 30
   },
   albumTitle: {
     fontSize: 22,
@@ -158,6 +157,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'row',
     paddingHorizontal: 4,
+    paddingBottom: 6
   },
   galleryItem: {
     borderRadius: 8,
