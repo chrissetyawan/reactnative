@@ -13,7 +13,8 @@ npx react-native run-ios
 ```
 
 #### Screenshoot
-![](https://i.ibb.co/wpcgLS/photoalbum.png)
+<a href="https://ibb.co/7rk4Czn"><img src="https://i.ibb.co/wpcsgLS/photoalbum.png" alt="photoalbum" border="0"></a>
+
 
 ## Troubleshoot
 ```
