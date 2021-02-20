@@ -12,6 +12,9 @@ npm install
 npx react-native run-ios
 ```
 
+#### Screenshoot
+![](https://i.ibb.co/wpcgLS/photoalbum.png)
+
 ## Troubleshoot
 ```
 - ios : xcodebuild command but it exited with error code 65
